@@ -1,0 +1,59 @@
+@use "/src/styles/_vars.scss" as *;
+@use "/src/styles/_mixins.scss" as *;
+
+.loading-indicator {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: $Loader-size;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    animation-duration: 1.8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: $Loader-timing;
+    filter: drop-shadow(0 0 7px rgba($Loader-color, 0.75));
+  }
+  &:before {
+    width: 100%;
+    padding-bottom: 100%;
+    box-shadow: inset 0 0 0 $Loader-offset $Loader-color;
+    animation-name: pulsA;
+  }
+  &:after {
+    width: calc(100% - #{$Loader-offset}* 2);
+    padding-bottom: calc(100% - #{$Loader-offset}* 2);
+    box-shadow: 0 0 0 0 $Loader-color;
+    animation-name: pulsB;
+  }
+}
+
+@keyframes pulsA {
+  0% {
+    box-shadow: inset 0 0 0 $Loader-offset $Loader-color;
+    opacity: 1;
+  }
+  50%,
+  100% {
+    box-shadow: inset 0 0 0 0 $Loader-color;
+    opacity: 0;
+  }
+}
+
+@keyframes pulsB {
+  0%,
+  50% {
+    box-shadow: 0 0 0 0 $Loader-color;
+    opacity: 0;
+  }
+  100% {
+    box-shadow: 0 0 0 $Loader-offset $Loader-color;
+    opacity: 1;
+  }
+}

@@ -1,0 +1,75 @@
+@use "/src/styles/_vars.scss" as *;
+@use "/src/styles/_mixins.scss" as *;
+.add-word-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 5px;
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  font-family: $font-main;
+
+  h2 {
+    text-align: center;
+    font-size: 16px;
+    color: $secondary-color;
+    margin-top: 15px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+
+    label {
+      font-size: 12px;
+      font-weight: 700;
+      color: $primary-color;
+      text-shadow: -1px -1px 0 $white, 1px -1px 0 $white, -1px 1px 0 $white,
+        1px 1px 0 $white;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid $border-color;
+
+      font-size: 16px;
+      @include transition(border-color);
+
+      &:focus {
+        border: 2px solid $primary-color;
+        outline: none;
+      }
+
+      &.error-border {
+        border-color: $error-color;
+      }
+    }
+
+    .error-message {
+      color: $error-color;
+      font-size: $font-size-small;
+      margin-top: 4px;
+    }
+  }
+
+  .save-word-btn {
+    @include main-button;
+    padding: 10px 15px;
+    width: fit-content;
+    align-self: center;
+    margin-bottom: 5px;
+    margin-left: 10px;
+
+    &:focus {
+      border: 2px solid $primary-color;
+      box-shadow: 0 0 11px 7px rgba(232, 118, 139, 0.8);
+    }
+
+    &:disabled {
+      background-color: $gray-color;
+      cursor: not-allowed;
+    }
+  }
+}

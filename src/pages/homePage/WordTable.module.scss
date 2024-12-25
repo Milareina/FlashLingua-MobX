@@ -1,0 +1,93 @@
+@use "/src/styles/_vars.scss" as *;
+@use "/src/styles/_mixins.scss" as *;
+.word-grid {
+  display: grid;
+  grid-template-columns: 50px 1fr 1fr 1fr 1fr;
+  gap: 1px;
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  font-family: $font-main;
+
+  .header {
+    font-weight: bold;
+    background-color: $primary-color;
+    color: $white;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid $border-color;
+  }
+
+  .cell {
+    padding: 10px;
+    border: 1px solid $border-color;
+    text-align: center;
+
+    input {
+      width: 90%;
+      padding: 5px;
+      border: 1px solid $border-color;
+      border-radius: 3px;
+    }
+
+    .edit-btn,
+    .delete-btn,
+    .save-btn,
+    .cancel-btn {
+      padding: 5px 10px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      margin-right: 5px;
+      @include transition(background-color);
+
+      &.edit-btn {
+        background-color: #fdb74d;
+        color: $white;
+        font-size: $font-size-small;
+
+        &:hover {
+          background-color: #fdd835;
+        }
+      }
+
+      &.delete-btn {
+        background-color: #f44336;
+        color: $white;
+        font-size: $font-size-small;
+
+        &:hover {
+          background-color: #e53935;
+        }
+      }
+
+      &.save-btn {
+        background-color: #4caf50;
+        color: $white;
+        font-size: $font-size-small;
+
+        &:hover {
+          background-color: #43a047;
+        }
+      }
+
+      &.cancel-btn {
+        background-color: $gray-color;
+        color: $white;
+        font-size: $font-size-small;
+
+        &:hover {
+          background-color: $gray-color;
+        }
+      }
+    }
+    .error-border {
+      border: 2px solid $error-color;
+    }
+    .error-message {
+      color: $error-color;
+      font-size: $font-size-small;
+      margin-top: 4px;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+@use "/src/styles/_vars.scss" as *;
+@use "/src/styles/_mixins.scss" as *;
+
+.page404 {
+  text-align: center;
+  margin: 50px auto;
+  min-height: 500px;
+  h1 {
+    font-size: 15rem;
+    color: $error-color;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: $gray-color;
+  }
+
+  .back-home {
+    display: inline-block;
+    margin-top: 20px;
+    padding: $padding-default;
+    background-color: $primary-color;
+    color: $white;
+    text-decoration: none;
+    border-radius: $border-radius;
+
+    &:hover {
+      background-color: $hover-color;
+    }
+  }
+}
